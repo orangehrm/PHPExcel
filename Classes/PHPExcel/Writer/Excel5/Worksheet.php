@@ -880,7 +880,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
             $formula = substr($formula, 1);
         } else {
             // Error handling
-            $this->writeString($row, $col, 'Unrecognised character for formula');
+            $this->writeString($row, $col, 'Unrecognised character for formula', $xfIndex);
             return -1;
         }
 
