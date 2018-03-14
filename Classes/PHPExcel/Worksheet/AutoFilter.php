@@ -809,6 +809,10 @@ class PHPExcel_Worksheet_AutoFilter
 
     /**
      * Implement PHP __clone to create a deep clone, not just a shallow copy.
+     *
+     * Suppress Expression may not be PHP 7 compatible warning since this was verified as working correctly.
+     *
+     * @suppress PhanCompatiblePHP7    
      */
     public function __clone()
     {
