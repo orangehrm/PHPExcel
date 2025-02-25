@@ -2822,7 +2822,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
                         $type = 0x07;
                         break;
                 }
-                $options |= $type << 0;
+                $options |= (int) $type << 0;
 
                 // error style
                 $errorStyle = $dataValidation->getType();
@@ -2837,7 +2837,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
                         $errorStyle = 0x02;
                         break;
                 }
-                $options |= $errorStyle << 4;
+                $options |= (int) $errorStyle << 4;
 
                 // explicit formula?
                 if ($type == 0x03 && preg_match('/^\".*\"$/', $dataValidation->getFormula1())) {
@@ -2884,9 +2884,9 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
                         $operator = 0x07;
                         break;
                 }
-                $options |= $operator << 20;
+                $options |= (int) $operator << 20;
 
-                $data        = pack('V', $options);
+                $data = pack('V', $options);
 
                 // prompt title
                 $promptTitle = $dataValidation->getPromptTitle() !== '' ?
